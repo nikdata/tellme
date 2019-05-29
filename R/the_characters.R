@@ -1,21 +1,24 @@
-#' Summarize the Non-Numeric Columns In A Dataframe
+#' Summarize the Characters
 #'
-#' @param df a `dataframe`
+#' This function provides a brief overview of the character columns in the supplied dataframe. With this function, you can easily discover the number of missing values and the number of unique values.
 #'
-#' @return
+#' @param df `dataframe` or `tibble`
+#'
+#' @return `tibble`, tibble of summary
 #' @export
 #'
 #' @importFrom magrittr "%>%"
 #'
 #' @examples
-describe_chars <- function(df) {
+#' # the_characters(iris)
+the_characters <- function(df) {
   # let's get the character columns only
   dfb <- df %>%
     dplyr::select_if(function(col) is.character(col) | all(is.factor(col)))
 
   # get the variable type
   dfb_type <- dfb %>%
-    purrr::map_df(function(x) typeof(x)) %>%
+    purrr::map_df(function(x) class(x)) %>%
     tidyr::gather(key = 'variable', value = 'type')
 
 

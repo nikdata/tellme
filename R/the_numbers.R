@@ -1,15 +1,17 @@
 #' Summarize the numeric values
 #'
-#' @param df A `dataframe`
+#' This function is designed to provide a deeper insight into the numerical values. Think of this function as the base `summary` function on high-power. With this function, you'll be able to get the min, max, median, and different quartiles in one go.
 #'
-#' @return
+#' @param df `dataframe` or `tibble`
+#'
+#' @return `tibble`, tibble of summary
 #' @export
 #'
 #' @importFrom magrittr "%>%"
 #'
 #' @examples
-#' #describe_numbers(df)
-describe_numbers <- function(df) {
+#' the_numbers(iris)
+the_numbers <- function(df) {
 
   # let's get the numeric columns only
   dfa <- df %>%

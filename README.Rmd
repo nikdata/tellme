@@ -1,0 +1,50 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# tellme
+
+## Background
+
+As I do exploratory data analysis, I often find myself wondering about a variety of stats that both the `summary()` and the `glimpse()` functions are unable to provide. For instance, I like to know the mean, median, standared deviation, 5th percentile, 10th percentile, etc. While the aforementioned functions do a good job of providing *some* insight, I felt the need to develop a more powerful way of getting the summaries I wanted.
+
+Hence, the tellme package was born.
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of tellme is to provide a much better summary of the different numeric and non-numeric columns of data. Often, I find that the `summary()` or the `dplyr::glimpse()` functions are unable to provide a comprehensive summary of the underlying data.
+
+## Installation
+
+You can install the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("nikdata/tellme")
+```
+## Example 1: Summarizing Numerical Data
+
+```{r numerical_data}
+library(tellme)
+
+tellme::the_numbers(iris)
+```
+
+## Example 2: Summarizing Non-Numerical Data
+
+```{r non_numerical_data}
+library(tellme)
+
+tellme::the_characters(iris)
+```
